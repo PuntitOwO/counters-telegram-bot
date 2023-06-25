@@ -61,6 +61,7 @@ def set_value(msg: telebot.types.Message, base:int = 10) -> None:
 	num = telebot.util.extract_arguments(msg.text).strip() # type: ignore
 	if not num.isdigit():
 		bot.reply_to(msg, nan_error)
+		return
 	set(msg.chat.id, int(num, base))
 
 @bot.message_handler(commands=["get","next"])
